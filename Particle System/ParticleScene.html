@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8" />
+    <title>Silly Particles</title>
+  </head>
+
+  <body onload="main()" onresize="winResize()" onselectstart="return false">
+  <center>
+      <div class="BG"><h1>Witness the foolish behavior of the particles!</h1>
+    Attention！If you see nothing in the viewports, please check your browser security configuration.<br><br>
+
+   <div class="Content">
+       <div class="GUIgroup" >
+           <div id="MeshType" class="GUI_item"><a class="Bold">Mesh Type </a><br>
+               <select name="select" size="3" id="select" style="width: 100%;" >
+               <option value="ball"  onclick="ChangeMesh(this.value)">Bouncing Ball</option>
+               <option value="cat" onclick="ChangeMesh(this.value)">Cat</option>
+               <option value="ghost" onclick="ChangeMesh(this.value)">Ghost</option>
+           </select>
+           </div>
+           <div class="GUI_item"><a class="Bold">Particle Count</a><br>
+               <input id="ParticleCt" value="20" maxlength="100"autocomplete="off" onchange="ChangeParticleCount(this.value)">
+           </div>
+
+           <div class="GUI_item"><a class="Bold">Particle Life time</a><br>
+               <input id="Lifetime" value="0" maxlength="100"autocomplete="off"  onchange="ChangeParticleLife(this.value)">
+           </div>
+
+           <div id="ForceType" class="GUI_item"><a class="Bold">Force type</a><br>
+               <input type="checkbox" id="EGravity" value ="Gra" checked="true" onclick="ChangeForce(this.value,this.checked)" >Gravity<br>
+               <input type="checkbox" id="ESpring" value ="Spr"  onclick="ChangeForce(this.value,this.checked)">Spring<br>
+               <input type="checkbox" id="ETornado" value ="Tor"  onclick="ChangeForce(this.value,this.checked)">Tornado<br>
+               <input type="checkbox" id="EFlocking" value ="Flo"  onclick="ChangeForce(this.value,this.checked)">Flocking<br>
+           </div>
+       </div>
+       <div class="GUIgroup">
+           <div class="GUI_item"><a class="Bold">Frame Per Second</a><br>
+               <div id="fps">--</div>
+           </div>
+           <div class="GUI_item"><a class="Bold">Enable/Disable Physics</a><br>Particle Index
+               <input id="ParticleID" value="-1" style="width: 40px;" maxlength="100"autocomplete="off"
+                      onchange="SetPhyStatus(document.getElementById('ParticleID').value,document.getElementById('Phy').checked)">
+               <br>
+               <input type="checkbox" id="Phy" checked="false" onclick="SetPhyStatus(document.getElementById('ParticleID').value,document.getElementById('Phy').checked)" >Non-Physics<br>
+           </div>
+           <!--<div class="GUI_item"><a class="Bold">Particle Count</a><br>
+               <input id="ParticleCt" maxlength="100" autocomplete="off">
+           </div>
+
+           <div class="GUI_item"><a class="Bold">Particle Life time</a><br>
+               <input id="Lifetime" maxlength="100" autocomplete="off">
+           </div>-->
+
+           <div id="Solver" class="GUI_item"><a class="Bold">Sovler</a><br>
+               <input type="radio" id="Euler" value="Euler" onclick="ChangeSolver(this.value,this.checked)">Euler Method<br>
+               <input type="radio" id="Mdpoint" value="Mdpoint" onclick="ChangeSolver(this.value,this.checked)">Midpoint<br>
+               <input type="radio" id="RK4" value="RK4" checked="true" onclick="ChangeSolver(this.value,this.checked)">Runge-Kutta order4<br>
+               <input type="radio" id="ImpMdpoint" value="ImpMdpoint" onclick="ChangeSolver(this.value,this.checked)">Implicit Midpoint<br>
+           </div>
+       </div>
+       <div class="instruction" style="float: left; margin-top: 15px">
+
+          1.	Click different items in <a class="Bold">Listbox</a> to change mesh type.<br>
+          2.	Check or uncheck to decide <a class="Bold">which kind of force to apply</a>.<br>
+          3.	Change camera view using <a class="Bold">"W/S/A/D"</a> or <a class="Bold">mouse your mouse</a>. Change  FOV using <a class="Bold">mouse wheel</a>.<br>
+          <!--4.	Change main viewport camera using <a class="Bold">“1” “2” “3”</a>. Switch between orthographic and perspective camera using<a class="Bold"> “P”</a>.<br>-->
+          4.	Press and hold<a class="Bold"> "1" </a>to keep Looking at No.1 particle.<br>
+          5.    Show/hide object axis using<a class="Bold"> “Enter”</a>.<br>
+   </div ></div>
+          <canvas id="webgl" width="800" height="800">
+    Please use a browser that supports "canvas"
+    </canvas>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix.js"></script>
+    <script src="Input.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Lights.js"></script>
+    <script src="materials.js"></script>
+    <script src="GeoDefinition.js"></script>
+    <script src="GeoData.js"></script>
+          <script src="ForceField.js"></script>
+          <script src="solvers.js"></script>
+          <script src="Constraints%20-%20Copy.js"></script>
+          <script src="Particles.js"></script>
+          <script src="ParticleEmitter.js"></script>
+    <script src="ParticleScene.js"></script>
+
+  </div>
+  </center>
+  </body>
+</html>

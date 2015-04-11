@@ -1,0 +1,37 @@
+.BG
+{
+    padding: 10px 10px 20px 10px;
+    background-color: #474e52;
+    width:100%;
+    color: white;
+    font: "Futura T W01 Demi", Arial, Helvetica, sans-serif
+
+}
+h1{
+    color: #fdd5ff;
+    font-family:Georgia;
+}
+
+.Content{
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    width: 22%;
+    float:left;
+}
+.GUI_item{
+    margin: 10px;
+   /* float: left;*/
+}
+
+.GUIgroup{
+    float: left;
+    width: 49%;
+    margin-right: 0px;
+}
+.Bold
+{
+    color: greenyellow;
+    font-weight:bold;
+    font-family:Georgia;
+}
